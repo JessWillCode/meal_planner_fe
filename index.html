@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trice's Meal Planner</title>
+  <link rel="stylesheet" href="App.css" />
+</head>
+<body>
+  <div class="app">
+    <h1 class="header">Trice's Meal Planner</h1>
+    <div class="section calendar">
+      <h2 class="text-3d">Meal Calendar</h2>
+      <div class="calendar-grid" id="calendarGrid"></div>
+    </div>
+
+
+    <div class="section">
+      <h2 class="text-3d">Protein Intake (grams)</h2>
+      <input type="number" id="proteinInput" />
+    </div>
+    <div class="section meal-diary">
+      <h2 class="text-3d">Ideal Meal Diary</h2>
+      <table>
+        <thead>
+          <tr>
+            <th class="text-3d-small">Month</th>
+            <th class="text-3d-small">Day</th>
+            <th class="text-3d-small">Hour</th>
+            <th class="text-3d-small">Meal</th>
+          </tr>
+        </thead>
+        <tbody id="diaryTableBody"></tbody>
+      </table>
+      <button id="addDiaryRowBtn">Add Entry</button>
+    </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
