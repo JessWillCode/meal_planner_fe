@@ -14,7 +14,7 @@ const weekDay = ['mOnday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',]
             });
             const save = localStorage.getItem('mealPlan');
             if (save) {
-                setPlan(parse.JSON(save));
+                setPlan(JSON.parse(save));
             }
         }, []);
         const selectMeal =(day,meal) => {
