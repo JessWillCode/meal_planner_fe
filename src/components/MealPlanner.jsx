@@ -9,13 +9,14 @@ const weekDay = ['mOnday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',]
         const [message, setMessage] = useState('');
 
         useEffect(() => {
-            mealService.getAllMeals().then(data => {
-                setMeals(data.map(meal => meal.name));
-            });
+            
             const save = localStorage.getItem('mealPlan');
             if (save) {
                 setPlan(JSON.parse(save));
             }
+            mealService.getAllMeals().then(data => {
+                setMeals(data);
+            });
         }, []);
         const selectMeal =(day,meal) => {
             setPlan(prev => ({ ...prev, [day]: meal}));
@@ -44,9 +45,12 @@ const weekDay = ['mOnday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',]
                         onChange={(e) => handleSelect(day, e.target.value)}>
                             <option value="">-- Select A Meal --</option>
                             {meals.map(meal => (
-                                <option key={meal} value={meal}></option>
+                                <option key={meal.id} value={meal.id}>
+                                    {meal.name}
+                                </option>
                                ))}
                                 </select>
+                                <p classname="selected-meal">Selected: {meals.find(m => m.id === plan[day])?.name || 'Unknown'}</p>
                                  </div>
                 ))}
                 </div>
