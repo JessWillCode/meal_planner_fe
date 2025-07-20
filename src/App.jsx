@@ -18,7 +18,7 @@ function App() {
           <Navbar />
           <main className="container">
             <Routes>
-              <Route path="/mplanner" element={<MealPlanner />} />
+              <Route path="/planner" element={<MealPlanner />} />
               <Route path="/" element={<Home />} />
               <Route path="/meals" element={<MealList />} />
               <Route path="/meals/new" element={<MealForm />} />
