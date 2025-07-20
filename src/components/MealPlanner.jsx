@@ -18,7 +18,7 @@ const weekDay = ['mOnday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',]
                 setMeals(data);
             });
         }, []);
-        const selectMeal =(day,meal) => {
+        const handleSelect =(day,meal) => {
             setPlan(prev => ({ ...prev, [day]: meal}));
         };
         
