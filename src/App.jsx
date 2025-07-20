@@ -8,6 +8,7 @@ import MealForm from './components/MealForm'
 import UserList from './components/UserList'
 import UserForm from './components/UserForm'
 import './App.css'
+import MealPlanner from './components/MealPlanner'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Navbar />
           <main className="container">
             <Routes>
+              <Route path="/mplanner" element={<MealPlanner />} />
               <Route path="/" element={<Home />} />
               <Route path="/meals" element={<MealList />} />
               <Route path="/meals/new" element={<MealForm />} />
