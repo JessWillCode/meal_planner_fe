@@ -1,18 +1,17 @@
 import React, {useState, useEffect} from 'react';
+import { mealService } from '../services/api';
 
 const weekDay = ['mOnday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',]
 
     const MealPlanner = () => {
-        const [meals, setMeals] = useState([
-            'chicken tacos',
-            'ramen noodles',
-            'steak bites',
-            'fullstack nachos'
-        ]);
+        const [meals, setMeals] = useState([]);
         const [plan, setPlan] = useState({});
         const [message, setMessage] = useState('');
 
         useEffect(() => {
+            mealService.getAllMeals().then(data => {
+                setMeals(data.map(meal => meal.name));
+            });
             const save = localStorage.getItem('mealPlan');
             if (save) {
                 setPlan(parse.JSON(save));
