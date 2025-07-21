@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import { mealService } from '../services/api';
+import { useMealContext } from '../context/MealContext';
 
 
 const weekDay = ['mOnday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',]
 
     const MealPlanner = () => {
-        const [meals, setMeals] = useState([]);
+       const {state, dispatch} = useMealContext();
+        const {meals} = state;
         const [plan, setPlan] = useState({});
         const [message, setMessage] = useState('');
 
@@ -15,9 +17,13 @@ const weekDay = ['mOnday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',]
             if (save) {
                 setPlan(JSON.parse(save));
             }
-            mealService.getAllMeals().then(data => {
-                setMeals(data);
-            });
+            mealService.getAllMeals().then((data) => {
+                dispatch({ type: 'SET_MEALS', payload: data});
+             })
+             .catch((err) => {
+                console.error('Meals Not Loaded',err);
+                dispatch({ type: 'SET_ERROR', payload: err.message});
+             }); 
         }, []);
         const handleSelect =(day,meal) => {
             setPlan(prev => ({ ...prev, [day]: meal}));
@@ -51,7 +57,7 @@ const weekDay = ['mOnday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',]
                                 </option>
                                ))}
                                 </select>
-                                <p classname="selected-meal">Selected: {meals.find(m => m.id === plan[day])?.name || 'Unknown'}</p>
+                                <p className="selected-meal"> Selected: {meals.find(m => m.id === plan[day])?.name || 'Unknown'}</p>
                                  </div>
                 ))}
                 </div>
