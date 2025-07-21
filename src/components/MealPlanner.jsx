@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { mealService } from '../services/api';
 
+
 const weekDay = ['mOnday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',]
 
     const MealPlanner = () => {
@@ -34,9 +35,9 @@ const weekDay = ['mOnday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',]
         };
 
         return (
-            <div style={{ padding: '20px' }}>
+            <div style={{ padding: '80px' }}>
             <h2>Meal Planner</h2>
-            <div style={{ display: 'grid', gap: '10px'}}>
+            <div style={{ display: 'grid', gap: '30px'}}>
                 {weekDay.map(day => (
                     <div key={day}>
                         <label>{day}: </label>

@@ -162,3 +162,14 @@
   border-radius: 4px;
   margin-bottom: 20px;
 } 
+
+.meal-planner {
+ background: #1c3d5e;
+ max-width: 800px;
+ color: #0f0a0a;
+ box-shadow: #0f0a0a
+ ;
+ text-shadow: #1c3d5e;
+ 
+}
+
