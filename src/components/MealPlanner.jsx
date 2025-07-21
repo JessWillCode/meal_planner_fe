@@ -3,7 +3,7 @@ import { mealService } from '../services/api';
 import { useMealContext } from '../context/MealContext';
 
 
-const weekDay = ['mOnday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',]
+const weekDay = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',]
 
     const MealPlanner = () => {
        const {state, dispatch} = useMealContext();
