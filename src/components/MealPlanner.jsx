@@ -51,13 +51,13 @@ const weekDay = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',]
                         value={plan[day] || ''}
                         onChange={(e) => handleSelect(day, e.target.value)}>
                             <option value="">-- Select A Meal --</option>
-                            {meals.map(meal => (
+                            {meals.data && meals.data.map(meal => (
                                 <option key={meal.id} value={meal.id}>
                                     {meal.name}
                                 </option>
                                ))}
                                 </select>
-                                <p className="selected-meal"> Selected: {meals.find(m => m.id === plan[day])?.name || 'Unknown'}</p>
+                                <p className="selected-meal"> Selected: {meals.data && meals.data.find(m => m.id === plan[day])?.name || 'Unknown'}</p>
                                  </div>
                 ))}
                 </div>
