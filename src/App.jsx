@@ -19,7 +19,7 @@ function App() {
           <main className="container">
             <Routes>
               <Route path="/planner" element={<MealPlanner />} />
-              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
               <Route path="/meals" element={<MealList />} />
               <Route path="/meals/new" element={<MealForm />} />
               <Route path="/meals/edit/:id" element={<MealForm />} />
