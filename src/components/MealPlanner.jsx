@@ -57,7 +57,7 @@ const weekDay = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',]
                                 </option>
                                ))}
                                 </select>
-                                <p className="selected-meal"> Selected: {meals.data && meals.data.find(m => m.id === plan[day])?.name || 'Unknown'}</p>
+                                <p className="selected-meal"> Selected: {meals.data.find(m => m.id == plan[day])?.name || 'Unknown'}</p>
                                  </div>
                 ))}
                 </div>
